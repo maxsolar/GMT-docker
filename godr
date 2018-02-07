@@ -53,7 +53,7 @@ if [ x"$1" == "x" ]; then
     check_shared_folder && docker rm -f gmt-$GMT_VERSION
     docker run -it --hostname gmt-$GMT_VERSION --name gmt-$GMT_VERSION \
                -v $MOUNTER \
-               gmt:$GMT_VERSION && chowner
+               maxsolar/gmt:$GMT_VERSION && chowner
 else
-    docker run --rm gmt:$GMT_VERSION "$@"
+    docker run --rm maxsolar/gmt:$GMT_VERSION "$@"
 fi
