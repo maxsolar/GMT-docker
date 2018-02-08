@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PATH "/usr/lib/gmt/bin:${PATH}"
 
 RUN apt-get update -qq && apt-get dist-upgrade -y && \
-    apt-get install wget vim gmt rsync netcdf-bin -y && \
+    apt-get install wget vim gmt gmt-coast-low rsync netcdf-bin -y && \
     echo "cat /etc/motd" >> /root/.bashrc
 
 RUN wget http://ftp.iris.washington.edu/pub/gmt/legacy/gshhs-2.1.1-full.tar.bz2 && \
