@@ -54,4 +54,8 @@ godr gmt psxy -R -J -O @tut_quakes.ngdc -Wfaint -i4,3,5,6s0.1 -h3 -Scc -Cquakes.
 ```
 However there are still some issues while using script mode, it is suggested to *cd* to the GMT working directory, then run *godr* and run script inside the container. After finished, execute *exit* to return the real command line.
 
-# Examples
+### Examples
+```
+cd examples
+bash scriptmode_GMT5.sh
+```
