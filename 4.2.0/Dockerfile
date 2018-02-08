@@ -2,11 +2,11 @@
 FROM maxsolar/ubuntu-hardy
 LABEL MAINTAINER='Jim T. Tang<maxubuntu@gmail.com>'
 ENV DEBIAN_FRONTEND noninteractive
+ENV PATH "/usr/lib/gmt/bin:${PATH}"
 
 RUN apt-get update -qq && apt-get dist-upgrade -y && \
     apt-get install wget vim wget gmt rsync netcdf-bin -y && \
-    echo "cat /etc/motd" >> /root/.bashrc && \
-    echo 'export PATH=$PATH:/usr/lib/gmt/bin' >> /root/.bashrc
+    echo "cat /etc/motd" >> /root/.bashrc 
 
 RUN wget http://ftp.iris.washington.edu/pub/gmt/legacy/gshhs-2.1.1-full.tar.bz2 && \
     tar jxf gshhs-2.1.1-full.tar.bz2 -C /tmp && \
