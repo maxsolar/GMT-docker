@@ -34,7 +34,9 @@ Place your GMT scripts in the shared folder, and execute `godr`, it will pull do
 http://gmt.soest.hawaii.edu/projects/gmt/wiki
 ```
 
-you can find the shared directory is located in /root and username is root. No worries about the user permission, run original gmt script as you used to, and make sure all output postscript files are below the shared folder.
+You can find the shared directory is located in /root/workspace and username is root. By default your shared folder is $PWD and it will be mounted at /root/workspace inside the container.
+
+
 
 ## script mode
 *script mode* is an advanced mode that helps you to forget virtual machine or so. For example, in traditional installed GMT script:
@@ -50,4 +52,6 @@ godr gmt makecpt -Cred,green,blue -T0,70,300,10000 > quakes.cpt
 godr gmt pscoast -R130/150/35/50 -JM6i -B5 -P -Ggray -K > GMT_tut_9.ps
 godr gmt psxy -R -J -O @tut_quakes.ngdc -Wfaint -i4,3,5,6s0.1 -h3 -Scc -Cquakes.cpt >>GMT_tut_9.ps
 ```
-However there are still some issue while using script mode, it is suggested to change to the GMT workding directory, then run *godr* and run script inside the container. After finished, execute *exit* to return the real command line.
+However there are still some issues while using script mode, it is suggested to *cd* to the GMT working directory, then run *godr* and run script inside the container. After finished, execute *exit* to return the real command line.
+
+# Examples

@@ -16,5 +16,5 @@ RUN wget http://ftp.iris.washington.edu/pub/gmt/legacy/gshhs-2.1.1-full.tar.bz2 
     rm -rf gshhs*bz2 /tmp/share
 
 COPY version /etc/motd
-WORKDIR /root
+WORKDIR /root/workspace
 CMD ["/bin/bash","-l"]

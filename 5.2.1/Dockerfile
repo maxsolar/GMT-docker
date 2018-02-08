@@ -8,5 +8,5 @@ RUN apt-get update -qq && apt-get dist-upgrade -y && \
     echo "cat /etc/motd" >> /root/.bashrc
 
 COPY version /etc/motd
-WORKDIR /root
+WORKDIR /root/workspace
 CMD ["/bin/bash","-l"]
