@@ -17,7 +17,7 @@ cp GMT-docker/godr ~/bin
 
 | Host dir     | docker dir  |
 |--------------|-------------|
-| /home/maxsolar/gmt-figures|/root/gmt-figures|
+| /home/maxsolar/gmt-figures|/root/workspace|
 | ../gmt-figures (not valid)| N/A |
 
 Place your GMT scripts in the shared folder, and execute `godr`, it will pull docker image accordingly. After finishing downloading, you will see:
