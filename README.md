@@ -56,6 +56,6 @@ However there are still some issues while using script mode, it is suggested to 
 
 ### Examples
 ```
-cd examples
+cd GMT-docker/examples
 bash scriptmode_GMT5.sh
 ```
