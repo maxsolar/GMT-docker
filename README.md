@@ -9,7 +9,7 @@ GMT-docker is the project to resolve problems between upgrading operation system
 git clone https://github.com/maxsolar/GMT-docker
 cp GMT-docker/godr ~/bin
 ```
-By default, the shared folder is the current working directory.
+* `godr` is short for "gmt on docker". which is the main program. Modify *GMT_VERSION* and *SHARED_FOLDER* when needed. 
 
 # Use modes
 ## tty mode
