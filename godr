@@ -12,6 +12,13 @@ source ~/.gmtrc 2>/dev/null
 
 
 ## functions
+function docker_checker(){
+    if [ ! `which docker` ]; then
+        echo "unable to find docker. Did you install Docker CE?"
+        exit 1
+    fi
+}
+
 function check_shared_folder() {
     if [ x"$SHARED_FOLDER" == "x" ]; then
         echo "no shared folder detected."
@@ -24,7 +31,7 @@ function check_shared_folder() {
            exit 1;
        fi
     fi
-    export MOUNTER="$SHARED_FOLDER:/root/$DIR"
+    export MOUNTER="$SHARED_FOLDER:/root/workspace"
 }
 
 function check_gmt_versions() {
@@ -45,15 +52,17 @@ function check_gmt_versions() {
 
 function chowner() {
     docker run --rm -v $MOUNTER \
-               gmt:$GMT_VERSION chown -R $(id -u):$(id -g) /root/$DIR
+               gmt:$GMT_VERSION chown -R $(id -u):$(id -g) /root/workspace
 }
 
-check_gmt_versions 
+docker_checker && check_gmt_versions && check_shared_folder
 if [ x"$1" == "x" ]; then
-    check_shared_folder && docker rm -f gmt-$GMT_VERSION
+    docker rm -f gmt-$GMT_VERSION 2>/dev/null
     docker run -it --hostname gmt-$GMT_VERSION --name gmt-$GMT_VERSION \
                -v $MOUNTER \
-               maxsolar/gmt:$GMT_VERSION && chowner
+               maxsolar/gmt-docker:$GMT_VERSION
 else
-    docker run --rm maxsolar/gmt:$GMT_VERSION "$@"
+    docker run --rm -v $MOUNTER \
+               maxsolar/gmt-docker:$GMT_VERSION "$@"
 fi
+chowner

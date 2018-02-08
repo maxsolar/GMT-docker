@@ -12,5 +12,5 @@ RUN apt-get update -qq && apt-get dist-upgrade -y && \
     sed -i -re 's/^(mesg n)(.*)$/#\1\2/g' /root/.profile
 
 COPY version /etc/motd
-WORKDIR /root
+WORKDIR /root/workspace
 CMD ["/bin/bash","-l"]
