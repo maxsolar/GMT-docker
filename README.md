@@ -1,6 +1,8 @@
 # GMT-docker
 GMT-docker is the project to resolve problems between upgrading operation systems and upgrading GMT. By leveraging container technology, here I decided to use [Docker](https://www.docker.com/) as the containerised solution.
 
+Very different to `gmtswitch` command, you don't need to *REALLY* install any version of GMT. Simply chaning *GMT_VERSION* in the main program and everything is working very well.
+
 # Prerequisites
 * Operation systems which support Docker. [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/) and [Debian](https://docs.docker.com/install/linux/docker-ce/debian/) Linux are preferred.
 
@@ -9,7 +11,7 @@ GMT-docker is the project to resolve problems between upgrading operation system
 git clone https://github.com/maxsolar/GMT-docker
 cp GMT-docker/godr ~/bin
 ```
-* `godr` is short for "gmt on docker". which is the main program. Modify *GMT_VERSION* and *SHARED_FOLDER* when needed. 
+* `godr` is short for "gmt on docker". which is the main script/program. Modify *GMT_VERSION* and *SHARED_FOLDER* when needed. 
 
 # Use modes
 ## tty mode
@@ -36,6 +38,8 @@ http://gmt.soest.hawaii.edu/projects/gmt/wiki
 
 You can find the shared directory is located in /root/workspace and username is root. By default your shared folder is $PWD and it will be mounted at /root/workspace inside the container.
 
+Use `ctrl d` or `exit` to exit container environment.
+
 
 
 ## script mode
@@ -57,5 +61,6 @@ However there are still some issues while using script mode, it is suggested to 
 ### Examples
 ```
 cd GMT-docker/examples
-bash scriptmode_GMT5.sh
+bash scriptmode_GMT5.sh # when GMT_VERSION=5.x.x
+bash scriptmode_GMT4.sh # when GMT_VERSION=4.x.x
 ```
